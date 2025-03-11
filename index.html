@@ -3,41 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamid Maei - AI Researcher</title>
+  <title>Professional Highlights</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
-      padding: 0;
+      padding: 20px;
       background-color: #f9f9f9;
       color: #333;
-    }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    section {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
     }
     h1, h2 {
       margin-top: 0;
     }
-    .links {
-      margin-top: 20px;
+    section {
+      margin-bottom: 20px;
+    }
+    .highlights ul {
+      padding-left: 20px;
+    }
+    .highlights li {
+      margin-bottom: 10px;
     }
     .links a {
-      display: block;
       color: #007BFF;
       text-decoration: none;
-      margin-bottom: 5px;
     }
     .links a:hover {
       text-decoration: underline;
@@ -47,29 +37,44 @@
 <body>
   <header>
     <h1>Hamid Maei</h1>
-    <p>AI Researcher and Engineer at Netflix</p>
-  </header>
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I’m an AI researcher and engineer at Netflix, where I work on building large-scale recommendation systems.
-      I have over a decade of industry experience developing AI applications at scale. 
-    </p>
-    <h2>My Background</h2>
-    <p>
-      I earned my PhD in Computer Science under the supervision of Rich Sutton, with a focus on reinforcement learning.
-      My work includes developing the GTD family of algorithms, which addressed fundamental challenges in reinforcement learning.
-    </p>
-    <h2>Research Highlights</h2>
-    <ul>
-      <li>Developed Gradient Temporal Difference (GTD) learning algorithms</li>
-      <li>Contributed to scalable AI systems powering personalized recommendations</li>
-    </ul>
+    <p>AI Researcher and Engineer</p>
     <div class="links">
-      <h2>Find Me Online</h2>
-      <a href="https://scholar.google.com/citations?user=BXUTo4AAAAAJ&hl=en" target="_blank">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/hamid-maei-a2bb2127/" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=BXUTo4AAAAAJ&hl=en" target="_blank">Google Scholar</a> | 
+      <a href="https://www.linkedin.com/in/hamid-maei-a2bb2127/" target="_blank">LinkedIn</a> | 
       <a href="http://incompleteideas.net/" target="_blank">Richard Sutton’s Page</a>
+    </div>
+  </header>
+  
+  <section>
+    <h2>Industry Experience</h2>
+    <div class="highlights">
+      <h3>Netflix (2020–Present)</h3>
+      <ul>
+        <li>Developed large-scale ranking systems, integrating games and videos into a unified recommendation model.</li>
+        <li>Productized personalized recommendations for over 250 million users worldwide.</li>
+      </ul>
+      
+      <h3>Cruise Automation (2020)</h3>
+      <ul>
+        <li>Implemented advanced deep learning models to improve pedestrian, bike, and vehicle predictions, reducing safety-critical events in autonomous driving.</li>
+        <li>Deployed graph attention models to capture complex actor interactions, resulting in improved prediction accuracy and production deployment.</li>
+      </ul>
+      
+      <h3>Other Roles</h3>
+      <ul>
+        <li>Led data science teams and delivered production-ready machine learning solutions at multiple companies, improving real-time bidding, advertising, and user engagement systems.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Academic Highlights</h2>
+    <div class="highlights">
+      <ul>
+        <li>Under Richard S. Sutton’s supervision, developed the GTD family of gradient-based temporal-difference learning algorithms, solving critical convergence challenges.</li>
+        <li>Published extensively in <a href="https://icml.cc/" target="_blank">ICML</a> and <a href="https://neurips.cc/" target="_blank">NIPS</a> on reinforcement learning and off-policy methods.</li>
+        <li>Introduced <a href="https://arxiv.org/abs/1012.2593" target="_blank">GQ(λ)</a> and TDC algorithms, establishing new convergence guarantees for temporal-difference learning.</li>
+      </ul>
     </div>
   </section>
 </body>
