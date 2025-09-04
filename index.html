@@ -85,14 +85,18 @@
     }
 
     .hero-subtitle {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 400;
       margin-bottom: 30px;
       opacity: 0.9;
       overflow: hidden;
       border-right: 3px solid rgba(255,255,255,0.8);
       white-space: nowrap;
-      animation: typing 4s steps(70, end), blink-caret 1s step-end infinite;
+      animation: typing 5s steps(100, end), blink-caret 1s step-end infinite;
+      max-width: 100%;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     @keyframes typing {
@@ -340,6 +344,11 @@
     @media (max-width: 768px) {
       .hero-title {
         font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        animation: typing 4s steps(80, end), blink-caret 1s step-end infinite;
       }
       
       .about-grid {
@@ -767,7 +776,7 @@
     <div class="container">
       <img src="hamid_photo.JPG" alt="Hamid Maei" class="profile-img">
       <h1 class="hero-title">Hamid Maei</h1>
-      <p class="hero-subtitle">Building AI systems that can learn and plan through experience about the consequence of actions</p>
+      <p class="hero-subtitle">Building AI systems that can learn via interactions and plan through experience about the consequence of actions</p>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/hamid-maei-a2bb2127/" target="_blank" class="social-link" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
