@@ -1,14 +1,920 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamid Maei's Website</title>
-</head>
-<body>
-  <h1>Welcome to My Personal Website</h1>
-  <p>Hi! I’m Hamid Maei. This is where I share my research, publications, and updates.</p>
-  <p>Check back soon for more content!</p>
-</body>
-</html>
+  <title>Hamid Maei - AI Researcher & Engineer</title>
+  <meta name="description" content="Hamid Maei - AI Researcher and Engineer at Netflix, PhD in Reinforcement Learning, specializing in neural architectures and recommendation systems. Creator of GTD algorithms solving the deadly triad problem.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap?v=202501041215" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css?v=202501041215" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #ef4444;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background-color: var(--bg-secondary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100"/></svg>');
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255,255,255,0.3);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .social-link {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .social-link:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    main {
+      padding: 80px 0;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      background: var(--bg-primary);
+      border-radius: 16px;
+      padding: 50px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      border-radius: 2px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .research-interests {
+      background: var(--bg-secondary);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .research-interests h3 {
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .interests-list {
+      list-style: none;
+    }
+
+    .interests-list li {
+      padding: 8px 0;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .interests-list li::before {
+      content: '▶';
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      font-size: 0.8rem;
+    }
+
+    .experience-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 3px solid var(--bg-primary);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+
+    .timeline-company {
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .timeline-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .highlight-card {
+      background: var(--bg-secondary);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-left-color: var(--accent-color);
+    }
+
+    .highlight-card h3 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      margin-bottom: 15px;
+    }
+
+    .highlight-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-align: center;
+    }
+
+    .contact-section .section-title {
+      color: white;
+    }
+
+    .contact-section .section-title::after {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-email:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section {
+        padding: 30px 20px;
+      }
+      
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 60px 0;
+      }
+      
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .scroll-indicator {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .scroll-indicator:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    .bio-section {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .breakthrough-card {
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-left: 4px solid #10b981 !important;
+    }
+
+    .achievement-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .achievement-badge {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .algorithm-names {
+      font-family: 'Courier New', monospace;
+      background: rgba(37, 99, 235, 0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Hero Stats */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .stat-item {
+      text-align: center;
+      color: white;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+    
+    .stat-divider {
+      width: 2px;
+      height: 60px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Career Timeline */
+    .career-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .career-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+      padding-left: 40px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: -8px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 3px solid var(--primary-color);
+      box-shadow: var(--shadow);
+    }
+    
+    .timeline-item.current .timeline-dot {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      transform: scale(1.3);
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+    }
+    
+    .timeline-item.academic .timeline-dot {
+      border-color: var(--secondary-color);
+      background: var(--secondary-color);
+    }
+    
+    .timeline-item.breakthrough .timeline-dot {
+      background: gold;
+      border-color: gold;
+      transform: scale(1.2);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+    }
+    
+    .timeline-year {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    
+    .timeline-company {
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Impact Grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .impact-card {
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .impact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .impact-card:hover::before {
+      left: 100%;
+    }
+    
+    .impact-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .entertainment { background: linear-gradient(135deg, #E50914, #B20710); color: white; }
+    .automotive { background: linear-gradient(135deg, #00D4AA, #00A085); color: white; }
+    .adtech { background: linear-gradient(135deg, #FF6900, #CC5200); color: white; }
+    .mobile { background: linear-gradient(135deg, #1428A0, #0F1E7A); color: white; }
+    
+    .impact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .impact-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    /* Breakthrough Section */
+    .breakthrough-simple {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .breakthrough-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 40px;
+    }
+    
+    .gtd-highlight {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .gtd-highlight h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .algorithm-showcase {
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      background: rgba(255,255,255,0.2);
+      padding: 15px 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+    
+    .gtd-highlight p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 768px) {
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .stat-divider {
+        width: 60px;
+        height: 2px;
+      }
+      
+      .career-timeline {
+        padding-left: 20px;
+      }
+      
+      .timeline-item {
+        padding-left: 30px;
+      }
+      
+      .breakthrough-title {
+        font-size: 2rem;
+      }
+      
+      .gtd-highlight {
+        padding: 30px 20px;
+      }
+      
+      .algorithm-showcase {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <img src="hamid_photo.JPG" alt="Hamid Maei" class="profile-img">
+      <h1 class="hero-title">Hamid Maei</h1>
+      <p class="hero-subtitle">On a mission to make impacts in products through large-scale experiential AI</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hamid-maei-a2bb2127/" target="_blank" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://x.com/HamidMaei" target="_blank" class="social-link" aria-label="X (Twitter)">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://github.com/hamid-maei" target="_blank" class="social-link" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=BXUTo4AAAAAJ&hl=en" target="_blank" class="social-link" aria-label="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="mailto:hamid.maei@gmail.com" class="social-link" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="section">
+        <h2 class="section-title">My AI Journey: Learning to Building</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="career-timeline">
+              <div class="timeline-item current">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2022 – Present</div>
+                  <div class="timeline-title">AI Researcher & Engineer</div>
+                  <div class="timeline-company">Netflix, Los Gatos, CA</div>
+                  <div class="timeline-desc">• Built incremental training of recommender system with generative AI paradigm and architecture<br>
+                    • Built the first unified personalized recommender system integrating games and video content for Netflix, serving 300M+ users worldwide</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2020 – 2021</div>
+                  <div class="timeline-title">Staff Applied Research Scientist</div>
+                  <div class="timeline-company">Cruise Automation, San Francisco, CA</div>
+                  <div class="timeline-desc">• Deep learning models for safety-critical vehicle, pedestrian, and bike prediction<br>
+                    • Multi-modal path prediction and interaction modeling for autonomous vehicles</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2017 – 2020</div>
+                  <div class="timeline-title">Staff Research Scientist</div>
+                  <div class="timeline-company">Criteo, Palo Alto, CA</div>
+                  <div class="timeline-desc">• Deep learning for advertising technology: text vs image for category predictions<br>
+                    • Scaling up neural networks for predictions such as CTR/conversions<br>
+                    • Research on reinforcement learning for bidding optimization</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2015 – 2017</div>
+                  <div class="timeline-title">Senior Staff Engineer</div>
+                  <div class="timeline-company">Samsung Research America, Mountain View, CA</div>
+                  <div class="timeline-desc">Led a team of 5 engineers developing CNN compression techniques for mobile device deployment</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2013 – 2015</div>
+                  <div class="timeline-title">Lead Machine Learning Scientist/Engineer</div>
+                  <div class="timeline-company">Various startups, Toronto, Canada</div>
+                  <div class="timeline-desc">Machine learning infrastructure, real-time bidding systems, and customer propensity prediction models</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item academic">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2011 – 2013</div>
+                  <div class="timeline-title">Postdoctoral Fellow</div>
+                  <div class="timeline-company">Stanford University, CA</div>
+                  <div class="timeline-desc">Postdoctoral research in Reinforcement Learning with <a href="https://web.stanford.edu/~bvr/" target="_blank" style="color: var(--primary-color);">Benjamin Van Roy</a></div>
+                </div>
+              </div>
+              
+              <div class="timeline-item academic breakthrough">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2007 – 2011</div>
+                  <div class="timeline-title">PhD in Computer Science</div>
+                  <div class="timeline-company"><a href="https://www.ualberta.ca/en/computing-science/index.html" target="_blank" style="color: var(--primary-color);">CS Department</a>, University of Alberta, Canada</div>
+                  <div class="timeline-desc">PhD Advisor: <a href="http://incompleteideas.net/" target="_blank" style="color: var(--primary-color);">Richard Sutton</a><br>Developed Gradient Temporal-Difference (GTD) algorithms, solving the fundamental "deadly triad" problem in reinforcement learning</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item academic">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2005 – 2007</div>
+                  <div class="timeline-title">Research Grad Student</div>
+                  <div class="timeline-company">University of Toronto, Canada</div>
+                  <div class="timeline-desc"><strong>→ Admitted to Computer Science PhD program and transitioned to University of Alberta to work with Rich Sutton</strong><br><br>
+                    Research in machine learning and memory mechanisms in neuronal systems<br>
+                    • Completed Deep Learning course (neural networks) with <a href="https://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" style="color: var(--primary-color);">Geoff Hinton</a><br>
+                    • Advanced course project in deep learning</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item academic">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-year">2003 – 2005</div>
+                  <div class="timeline-title">M.Phil. Machine Learning</div>
+                  <div class="timeline-company"><a href="https://www.ucl.ac.uk/gatsby/" target="_blank" style="color: var(--primary-color);">Gatsby Unit</a>, <a href="https://www.ucl.ac.uk/" target="_blank" style="color: var(--primary-color);">UCL</a>, London, UK (founded by <a href="https://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" style="color: var(--primary-color);">Geoff Hinton</a>)</div>
+                  <div class="timeline-desc">Advanced coursework and research in machine learning<br>
+                    • Temporal memory research in randomly connected recurrent neural networks<br>
+                    • Unsupervised learning</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="research-interests">
+            <h3>Research Interest</h3>
+            <ul class="interests-list">
+              <li>Generative AI</li>
+              <li>Reinforcement Learning</li>
+              <li>Agentic AI Systems and Planning</li>
+              <li>Recommendation Systems</li>
+              <li>Neural Architecture Design</li>
+              <li>Large-Scale AI Systems</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section impact-section">
+        <h2 class="section-title">Industry Experience</h2>
+        <div class="impact-grid">
+          <div class="impact-card entertainment">
+            <div class="impact-icon">📺</div>
+            <h3>Recommender Systems</h3>
+            <p><strong>Netflix:</strong> Advanced recommender system for Netflix homepage serving 300M+ global users</p>
+          </div>
+          <div class="impact-card automotive">
+            <div class="impact-icon">🚗</div>
+            <h3>Autonomous Driving</h3>
+            <p><strong>Cruise Automation:</strong> Deep learning models for safety-critical vehicle, pedestrian, and bike prediction</p>
+          </div>
+          <div class="impact-card adtech">
+            <div class="impact-icon">🎯</div>
+            <h3>Advertising Technology</h3>
+            <p><strong>Criteo:</strong> Deep learning for category predictions and reinforcement learning frameworks for real-time bidding optimization</p>
+          </div>
+          <div class="impact-card mobile">
+            <div class="impact-icon">📱</div>
+            <h3>Mobile AI</h3>
+            <p><strong>Samsung:</strong> CNN compression for mobile device deployment</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section breakthrough-section">
+        <div class="breakthrough-simple">
+          <h2 class="breakthrough-title">Academic Breakthrough in RL</h2>
+          <div class="gtd-highlight">
+            <h3>Gradient-TD (GTD) Algorithms</h3>
+            <div class="algorithm-showcase">TDC • GQ(λ) • Greedy-GQ</div>
+            <p>
+              Solved the "deadly triad" — a 16-year-old fundamental problem in reinforcement learning. 
+              Provided the first theoretical convergence guarantees for combining off-policy learning, function approximation, and bootstrapping.
+            </p>
+            <p style="font-size: 0.95rem; opacity: 0.95; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0;">
+              This work has been acknowledged in the preface and featured in Chapter 11 of <a href="http://incompleteideas.net/book/RLbook2020.pdf" target="_blank" style="color: #FFD700; font-weight: 600; text-decoration: underline;">"Reinforcement Learning: An Introduction"</a> by Sutton and Barto.
+            </p>
+            <div style="margin: 20px 0; text-align: center; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+              <a href="http://incompleteideas.net/book/RLbook2020.pdf" target="_blank">
+                <img src="smallbookcover.gif" alt="Reinforcement Learning: An Introduction book cover" style="height: 140px; border-radius: 8px; box-shadow: 0 6px 12px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.3);">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-info">
+          Interested in collaborating on AI missions or discussing ideas? I'd love to connect.
+        </p>
+        <a href="mailto:hamid.maei@gmail.com" class="contact-email">
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <div class="scroll-indicator" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    window.addEventListener('scroll', function() {
+      const indicator = document.querySelector('.scroll-indicator');
+      if (window.scrollY > 300) {
+        indicator.style.display = 'flex';
+      } else {
+        indicator.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.highlight-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  </script>
+</body>
+
+</html>
